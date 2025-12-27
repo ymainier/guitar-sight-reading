@@ -67,8 +67,13 @@ const MIDI_TO_VEXFLOW: Record<number, string> = {
 };
 
 export const DIFFICULTY_CONFIGS: Record<Difficulty, DifficultyConfig> = {
-  beginner: {
-    label: "Beginner",
+  openStrings: {
+    label: "Open Strings",
+    maxFret: 0,
+    strings: [1, 2, 3, 4, 5, 6],
+  },
+  firstPosition: {
+    label: "First Position",
     maxFret: 4,
     strings: [1, 2, 3, 4, 5, 6],
   },

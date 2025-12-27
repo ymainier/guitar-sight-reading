@@ -17,7 +17,7 @@ interface QuestionState {
 }
 
 function App() {
-  const [difficulty, setDifficulty] = useState<Difficulty>("beginner");
+  const [difficulty, setDifficulty] = useState<Difficulty>("openStrings");
   const [questionKey, setQuestionKey] = useState(0);
   const [selectedPosition, setSelectedPosition] = useState<GuitarPosition | null>(null);
   const [revealed, setRevealed] = useState(false);

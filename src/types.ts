@@ -8,7 +8,7 @@ export interface Note {
   positions: GuitarPosition[]; // All possible positions for this note
 }
 
-export type Difficulty = "beginner" | "intermediate" | "advanced";
+export type Difficulty = "openStrings" | "firstPosition" | "intermediate" | "advanced";
 
 export interface DifficultyConfig {
   label: string;
