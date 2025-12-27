@@ -111,14 +111,24 @@ body {
 }
 
 .tab-options {
-  display: flex;
+  display: grid;
   gap: 1rem;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 600px) {
+  .tab-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 360px) {
+  .tab-options {
+    grid-template-columns: 1fr;
+  }
 }
 
 .tab-option {
-  flex: 1;
-  min-width: 100px;
   border: 2px solid var(--foreground);
   border-radius: var(--radius);
   padding: 0.5rem;
