@@ -13,7 +13,8 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   background-color: var(--background);
   color: var(--foreground);
   line-height: 1.5;
@@ -58,17 +59,23 @@ body {
   width: 100%;
   padding: 0.625rem 2.5rem 0.625rem 1rem;
   font-size: 1rem;
-  border: 2px solid var(--border);
+  border: 2px solid var(--foreground);
   border-radius: var(--radius);
   background-color: var(--background);
   color: var(--foreground);
   appearance: none;
   cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 4px 4px 0px var(--foreground);
 }
 
 .select:focus {
-  outline: none;
-  border-color: var(--foreground);
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+}
+
+.select:active {
+  box-shadow: -2px -2px 0px var(--foreground);
 }
 
 .select-arrow {
@@ -138,15 +145,27 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 4px 4px 0px var(--foreground);
 }
 
 .tab-option:hover {
   background: #f5f5f5;
+  box-shadow: 2px 2px 0px var(--foreground);
 }
 
 .tab-option.selected {
   background: #f0f0f0;
   border-width: 2px;
+}
+
+.tab-option:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+  box-shadow: 2px 2px 0px var(--foreground);
+}
+
+.tab-option:active {
+  box-shadow: -2px -2px 0px var(--foreground);
 }
 
 .tab-option.correct {
@@ -187,7 +206,7 @@ body {
   background: var(--foreground);
   color: var(--background);
   cursor: pointer;
-  transition: opacity 0.15s ease;
+  transition: all 0.15s ease;
 }
 
 .button:hover {
@@ -197,4 +216,9 @@ body {
 .button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
 }
