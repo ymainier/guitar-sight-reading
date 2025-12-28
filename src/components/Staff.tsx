@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Renderer, Stave, StaveNote, Voice, Formatter } from "vexflow";
+import { Renderer, Stave, StaveNote, Voice, Formatter, Accidental } from "vexflow";
 
 interface StaffProps {
   pitch: string; // VexFlow format: "c/4", "d/4", etc.
@@ -29,7 +29,13 @@ export function Staff({ pitch }: StaffProps) {
       duration: "w", // whole note
     });
 
-    // Add ledger lines if needed (VexFlow handles this automatically)
+    // Add accidental if present in the pitch (e.g., "f#/5" or "bb/4")
+    const notePart = pitch.split("/")[0];
+    if (notePart.includes("#")) {
+      note.addModifier(new Accidental("#"));
+    } else if (notePart.includes("b") && notePart.length > 1) {
+      note.addModifier(new Accidental("b"));
+    }
 
     // Create a voice and add the note
     const voice = new Voice({ numBeats: 4, beatValue: 4 });
